@@ -20,11 +20,14 @@
 
 API реализован на Flask и включает следующие эндпойнты:
 - predict - возвращает класс отзыва - 0 или 1;
+![Predict screenshot](https://github.com/AstFreelancer/NLP_Restaurants/blob/main/screens/predict.PNG)
 - reviews - возвращает сохраненные в БД отзывы с их предсказаниями (0 или 1);
+![Reviews screenshot](https://github.com/AstFreelancer/NLP_Restaurants/blob/main/screens/reviews.PNG)
 - reviews/analysis - подсчитывает статистику для каждого класса предсказаний;
+![Analysis screenshot](https://github.com/AstFreelancer/NLP_Restaurants/blob/main/screens/analysis.PNG)
 - chat - чатбот, о нем ниже. 
 
-### Работа с БД
+### Работа с SQLite
 
 В файле [database.py](database.py) создается таблица reviews, в которой хранятся отзывы и предсказания модели для них. Эта таблица заполняется функцией save_prediction_to_db(), расположенной в файле app.py.
 
@@ -38,6 +41,21 @@ API реализован на Flask и включает следующие эн�
 
 Дежурные реплики определяются по наличию триггеров 'hello', 'my name is' и 'goodbye' в сообщении пользователя.
 
+Здороваемся:
+![Hello screenshot](https://github.com/AstFreelancer/NLP_Restaurants/blob/main/screens/hello.PNG)
+
+Прощаемся:
+![Goodbye screenshot](https://github.com/AstFreelancer/NLP_Restaurants/blob/main/screens/goodbye.PNG)
+
+Знакомимся:
+![Mynameis screenshot](https://github.com/AstFreelancer/NLP_Restaurants/blob/main/screens/mynameis.PNG)
+
 Отзыв должен начинаться со слова review: с двоеточием. Вся часть сообщения после двоеточия и возможного пробела рассматривается как отзыв.
 
 Полученный отзыв направляется нейросети на классификацию. В зависимости от ее предсказания пользователь получит сообщение "Thank you for your positive/negative review!".
+
+Этот отзыв модель классифицировала как положительный:
+![Positive screenshot](https://github.com/AstFreelancer/NLP_Restaurants/blob/main/screens/positivereview.PNG)
+
+А этот - как негативный:
+![Negative screenshot](https://github.com/AstFreelancer/NLP_Restaurants/blob/main/screens/negativereview.PNG)
